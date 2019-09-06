@@ -125,15 +125,15 @@ zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m
 
 #提示符
 setopt PROMPT_SUBST
-#PROMPT='%(?..$stats)[%{$fg_bold[white]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m%{$reset_color%} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}]$ '
 PROMPT='[%{$fg_bold[white]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m%{$reset_color%} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}]$ '
+emoji="$(echo '%{$fg_bold[red]%}:(%{$reset_color%}')"
+RPROMPT="%(?..$emoji)"
+
+# git
 ZSH_THEME_GIT_PROMPT_PREFIX="(%{$fg_bold[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%} %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}"
-stats="%{$fg_bold[red]%}%?%{$reset_color%} "
-emoji="$(echo '%{$fg_bold[red]%}:(%{$reset_color%}')"
-RPROMPT="%(?..$emoji)"
 
 #刷新自动补全
 zstyle ':completion:*' rehash true
