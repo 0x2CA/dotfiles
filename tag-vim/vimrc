@@ -1,0 +1,142 @@
+"常规字体 12pt monaco
+"非常规字体 13pt Roboto Mono Thin for Powerline Bold
+"终端内置颜色方案 solarized dark
+
+set nocompatible              " be iMproved, required
+
+" set the runtime path to include Vundle and initialize
+" install : git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" install Bundel : BundleInstall
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+"主题
+Plugin 'altercation/vim-colors-solarized'
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+
+" 配色方案 "需要～/.vim/colors/solarized.vim
+colorscheme solarized
+set background=dark
+set t_Co=256
+
+"自动补全
+"Plugin 'Valloric/YouCompleteMe' "运行install.py --all
+
+"美化状态栏
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_theme='cool'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+  "目录树导航
+Plugin 'vim-scripts/The-NERD-tree'
+map <F2> :NERDTreeToggle<CR>
+let g:NERDTreeChDirMode = 2
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+"autocmd vimenter * NERDTree "自动开起
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"let g:netrw_home='~/bat'
+nmap <C-K>  :bnext<CR>
+nmap <C-J>  :bprev<CR>
+nmap <C-C>  :bdelete<CR>
+
+"tagbar
+Plugin 'majutsushi/tagbar'
+let g:tagbar_autofocus = 1
+let g:tagbar_ctags_bin = '/usr/bin/ctags'  "请安装ctags
+let g:tagbar_width = 26
+nmap <F3> :TagbarToggle<CR>
+
+"taglist
+"Plugin 'vim-scripts/taglist.vim'
+"nmap <F3> :Tlist<CR>
+"let Tlist_Show_One_File        = 1             " 只显示当前文件的tags
+"let Tlist_Exit_OnlyWindow      = 1             " 如果Taglist窗口是最后一个窗口则退出Vim
+"let Tlist_Use_Right_Window     = 1             " 在右侧窗口中显示
+"let Tlist_File_Fold_Auto_Close = 1             " 自动折叠
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"行号
+set number
+"缩进和语法
+set expandtab
+set autoindent
+"总是显示状态栏
+set laststatus=2
+"高亮显示当前行/列
+set cursorline
+"set cursorcolumn
+"显示光标当前位置
+set ruler
+"基于缩进或语法进行代码折叠
+set foldmethod=indent
+set foldmethod=syntax
+"启动 vim 时关闭折叠代码
+set nofoldenable
+"高亮
+syntax enable
+syntax on
+"检测文件的类型
+filetype on
+"智能缩进
+filetype indent on
+"自动折行
+set wrap
+"对齐格式
+set autoindent
+set smartindent
+"自动缩进
+set tabstop=4
+set shiftwidth=4
+"匹配模式
+set showmatch
+"关闭匹配高亮
+"set nohls
+"vim自身命令行模式智能补全
+set wildmenu
+"禁止光标闪烁
+set gcr=a:block-blinkon0
+"禁止显示滚动条
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R

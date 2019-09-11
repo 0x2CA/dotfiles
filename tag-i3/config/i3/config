@@ -194,7 +194,9 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-bindsym Mod1+Ctrl+l exec --no-startup-id i3lock-fancy
+
+bindsym Ctrl+Mod1+l exec --no-startup-id i3lock-fancy
+bindsym Ctrl+Mod1+s exec --no-startup-id i3lock-fancy && systemctl suspend
 
 ### Shortcuts ###
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%+
@@ -227,7 +229,8 @@ bindsym XF86TouchpadToggle exec --no-startup-id /home/luca/Documenti/toggletouch
 #bindsym Mod1+shift+i exec --no-startup-id icedove
 #bindsym Mod1+shift+b exec --no-startup-id iceweasel
 #bindsym Mod1+shift+p exec --no-startup-id urxvt -name games-launcher -e /home/luca/Documenti/games.sh
-#bindsym Mod1+Print exec --no-startup-id scrot 'Schermata%Y-%m-%d-%T.png' -e 'mv $f ~/Immagini/'
+bindsym Mod1+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%T.png' -e 'mv $f ~/Image/'
+bindsym Ctrl+Mod1+a exec --no-startup-id scrot -s 'Screenshot-%Y-%m-%d-%T.png' -e 'mv $f ~/Image/'
 
 assign [class="Audacious"] $ws6
 assign [class="Vlc"] $ws6
