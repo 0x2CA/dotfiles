@@ -26,7 +26,7 @@ FONT6="-kakwa-kakwafont-medium-r-normal--12-120-72-72-c-60-iso8859-1"
 
 
 # Panel 
-PW=1342
+PW=1416
 PH=24
 PX=12
 PY=12
@@ -61,10 +61,10 @@ music() {
 }
 	
  net(){
-	ipnet=$(ip=$(/sbin/ifconfig | grep eth0 -A 5 | sed '/inet addr:/!d;s/.*addr:\([0-9.]*\).*/\1/'); if [ ! -z "$ip" ]; then echo "$ip"; else echo "No Connection";fi)
+	ipnet=$(ip=$(ifconfig ens33 | grep "inet " | awk '{ print $2}'); if [ ! -z "$ip" ]; then echo "$ip"; else echo "No Connection";fi)
 	ip=$(ip=$(/sbin/ifconfig | grep wlan0 -A 5 | sed '/inet\ addr/!d;s/.*addr:\([0-9.]*\).*/\1/'); if [ ! -z $ip ]; then echo $ip ;else ip=$(/sbin/ifconfig | grep eth0 -A 5 | sed '/inet addr:/!d;s/.*addr:\([0-9.]*\).*/\1/'); if [ ! -z "$ip" ]; then echo "$ip"; else echo "No ip";fi;fi)
 	ping=$(pn=$(timeout .8 ping 185.40.64.65 -c 1 -s 24 | sed '2!d;s/.*time=\([0-9]*\).*/\1/'); if [ -z $pn ] ; then echo "No Connection"; else echo "${pn}ms"; fi)
-	echo "%{F$GREEN} ${ip}   ${ping}"
+	echo "%{F$GREEN} ${ipnet}   ${ping} "
 }
 
 ram(){

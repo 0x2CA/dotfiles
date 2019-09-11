@@ -1,7 +1,7 @@
 alignment top_middle
 background no
-minimum_size 1366 26
-border_width 0
+minimum_size 1416 
+border_width 12
 own_window yes
 own_window_type panel
 own_window_argb_visual yes

@@ -194,6 +194,8 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
+bindsym Mod1+Ctrl+l exec --no-startup-id i3lock-fancy
+
 ### Shortcuts ###
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%-
