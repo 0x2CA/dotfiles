@@ -197,7 +197,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ###  lock  ###
-bindsym Ctrl+$mod+l exec --no-startup-id i3lock-fancy
+bindsym Ctrl+$mod+l exec --no-startup-id i3lock-fancy 
 bindsym Ctrl+$mod+s exec --no-startup-id i3lock-fancy && systemctl suspend
 
 ### Shortcuts ###
@@ -259,20 +259,31 @@ for_window [class="Termite" instance="games-launcher$"] move to workspace $ws5, 
 ### RANDR ###
 exec  --no-startup-id  xrandr -s 1440x900
 
-# auto lock#
+### auto lock ###
 exec  --no-startup-id xautolock -time 5 -locker i3lock-fancy 
 
-#exec --no-startup-id compton -bG --config ~/.config/compton.conf 
+### compton ###
+#exec  --no-startup-id  compton -b
+exec --no-startup-id compton -bG --config ~/.config/compton/config 
+
+
+exec  --no-startup-id  fcitx
 
 #exec --no-startup-id iceweasel 
 
-exec --no-startup-id  polybar
+### bar ###
+exec --no-startup-id   ~/.config/polybar/launch.sh
+
+### desktop image  ###
+exec --no-startup-id   feh --bg-scale ~/.config/feh/default.jpg
 
 exec --no-startup-id i3-msg 'workspace $ws3'
 exec --no-startup-id termite --name tty-clock -e 'tty-clock -C 2 -c -d 20000000000'
 #exec --no-startup-id ~/Telegram
 #exec --no-startup-id sh ~/.fehbg
-#exec --no-startup-id mpd
+
+### Music Player Daemon ###
+exec --no-startup-id mpd
 #exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp -s playlist
 #exec --no-startup-id xinput disable 'ETPS/2 Elantech Touchpad' 
 #exec --no-startup-id xinput set-prop 'USB Optical Mouse' 261 0.8

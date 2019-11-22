@@ -1,6 +1,12 @@
 #!/bin/sh
 
-LANG=zh_CN.UTF-8
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export LC_CTYPE=en_US.UTF-8
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -34,4 +40,5 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-exec i3 -V >> ~/.config/i3/log/i3log-$(date -Id) 2>&1
+#exec i3 -V >> ~/.config/i3/log/i3log-$(date -Id) 2>&1
+exec i3 -V > ~/.i3log 2>&1

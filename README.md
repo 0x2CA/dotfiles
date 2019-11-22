@@ -6,14 +6,14 @@ vim /etc/mkinitcpio.conf #HOOKS="base udev plymouth [...] "
 plymouth-set-default-theme -R arch-charge
 vim /boot/loader/entries/arch.conf #options [...] quiet splash
 
-#安装 zsh
-yay -S zsh oh-my-zsh-git zsh-syntax-highlighting zsh-autosuggestions
+#安装 fish
+yay -S fish
 
-# 安装 xorg 服务 调整分辨率 xorg-xrandr
-yay -S xorg-server xorg-xinit xorg-xrandr
+# 安装 xorg 服务 
+yay -S xorg xorg-xinit
 
 # 安装 i3-gaps
-yay -S i3
+yay -S i3-gaps
 
 # 安装 终端模拟器 xterm-termite
 yay -S tremite
@@ -34,14 +34,10 @@ yay -S mpv
 
 # 安装 中文字体
 yay  -S noto-fonts-cjk
-# 安装 英文字体
-yay  -S  noto-fonts
-# 安装 表情字体
-yay  -S  noto-fonts-emoji
 
 # 安装 图标字体 Awesome 
 yay -S ttf-font-awesome
-yay -S faenza-icon-theme
+yay -S ttf-material-icons-git
 
 # 文件系统支持 ntfs exfat
 yay -S ntfs-3g
@@ -49,7 +45,6 @@ yay -S exfat-utils
 
 # 安装 浏览器 firefox
 yay -S  firefox
-yay -S chromium
 
 # 安装 命令行文件管理器 ranger
 yay -S ranger
@@ -72,6 +67,11 @@ yay -S rofi
 
 # 安装 壁纸 feh
 
-# 安装 终端透明 compton
+# 混合器 
 yay -S compton
+
+
+# fcitx google输入法
+yay -S fcitx-im fcitx-googlepinyin fcitx-configtool
+
 
