@@ -1,31 +1,14 @@
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 ## Mod set ##
 set $mod Mod1
 
-### THEME ###
+## Font ##
 
+
+
+### THEME ###
+#
 set $FOCUS #989898
 set $UNFOCUS #3c3b37
 
@@ -201,6 +184,7 @@ bindsym Ctrl+$mod+l exec --no-startup-id i3lock-fancy
 bindsym Ctrl+$mod+s exec --no-startup-id i3lock-fancy && systemctl suspend
 
 ### Shortcuts ###
+# alsamixer set audio#
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle
@@ -240,7 +224,7 @@ assign [class="Audacious"] $ws6
 assign [class="Vlc"] $ws6
 assign [class="Iceweasel"] $ws1
 assign [class="Telegram"] $ws2
-assign [class="Spotify"] $ws6
+assign [class="netease-cloud-music"] $ws6
 assign [class="pidgin"] $ws2
 assign [class="Termite" instance="ncmpcpp"] $ws3
 assign [class="Termite" instance="tty-clock"] $ws3
@@ -252,8 +236,7 @@ for_window [class="Steam"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="PlayOnLinux"] floating enable
 for_window [class="Termite" instance="games-launcher$"] move to workspace $ws5, floating enable , move absolute position 400px 200px
-
-
+for_window [class="netease-cloud-music"] floating enable
 
 ### Exec ###
 ### RANDR ###
@@ -264,8 +247,7 @@ exec  --no-startup-id xautolock -time 5 -locker i3lock-fancy
 
 ### compton ###
 #exec  --no-startup-id  compton -b
-exec --no-startup-id compton -bG --config ~/.config/compton/config 
-
+exec --no-startup-id compton -b  --config ~/.config/compton/config 
 
 exec  --no-startup-id  fcitx
 
