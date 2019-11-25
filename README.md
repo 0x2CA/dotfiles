@@ -46,7 +46,7 @@ yay -S sysstat
 
 # 安装 音乐
 ```
-yay -S mpc mpd
+yay -S  mpd ncmpcpp
 ```
 
 # 安装 声音
@@ -104,15 +104,21 @@ yay -S tty-clock
 ```
 
 # 安装 启动器 rofi
+```
 yay -S rofi
+```
 
 # 安装 壁纸 feh
+```
 yay -S feh
+```
 
 # 混合器
+```
 yay -S compton-git
+```
 
 # fcitx google输入法
+```
 yay -S fcitx-im fcitx-googlepinyin fcitx-configtool
-
-
+```
